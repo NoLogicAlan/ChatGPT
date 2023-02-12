@@ -103,7 +103,7 @@ class Chatgpt {
       this.comHashLong = null;
     }
 
-    this.comLink = (this.comHashLong) ? "https://github.com/NoLogicAlan/Chatgpt/tree/" + this.comHashLong : "https://github.com/NoLogicAlan/Chatgpt";
+    this.comLink = (this.comHashLong) ? "https://github.com/NoLogicAlan/ChatGPT/tree/" + this.comHashLong : "https://github.com/NoLogicAlan/ChatGPT";
     this.playerMap = new Map();
     this.currPort = -1;
     this.channels = [];
