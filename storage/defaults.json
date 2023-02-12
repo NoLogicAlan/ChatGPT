@@ -1,0 +1,8 @@
+{
+  "values": {
+    "prefix": "/"
+  },
+  "descriptions": {
+    "prefix": "The prefix that is used to trigger commands. Alternatively, you can use a ping with a space after it."
+  }
+}
