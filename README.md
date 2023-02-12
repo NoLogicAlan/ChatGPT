@@ -1,3 +1,3 @@
-# Chatgpt
+# ChatGPT Bot
 
-This code is a simple implementation of a Revolt bot using the Revolt.js library and OpenAI's Image/Text Generation API. The bot listens for messages in the Revolt server, and when it receives a message starting with /generate-image, /textgen, it uses the description provided in the message to generate an image/text using OpenAI's Image/text Generation API.
+"Introducing ChatGPT Bot - the ultimate AI-powered chat companion for your Revolt server! This bot uses OpenAI's cutting-edge language model to deliver the best possible responses to your questions and conversations. With its advanced natural language processing capabilities, ChatGPT Bot can understand and respond to a wide range of topics and queries with ease. Whether you're looking for witty banter, helpful advice, or just someone to chat with, ChatGPT Bot has you covered. So why wait? Invite this bot to your server today and start having some amazing conversations!"
