@@ -23,13 +23,21 @@ module.exports = {
     const prompt = data.get("prompt").value
     const answer = await ask(prompt);
     if (answer.success) {
-      message.channel.sendMessage(answer.imageUrls.join(" "));
+      const startTime = new Date();
+      const elapsedTime = (new Date() - startTime) / 1000;
       //message.channel.sendMessage({
       //  content: " ",
       //  images: (await Promise.all(answer.imageUrls.map(i=>upload(i))).map(i=>i.value))
       //})
+      message.channel.sendMessage(`Image generated in ${elapsedTime} seconds, please wait...`);
+      setTimeout(() => {
+        answer.imageUrls.forEach(url => {
+          message.channel.sendMessage(`[Image](${url})`);
+        });
+      }, 5000); // 5000ms = 5s
     } else {
       message.channel.sendMessage(answer.error);
     }
   }
 }
+
