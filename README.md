@@ -12,3 +12,11 @@ Below is a table of all of ChatGPT's commands.
 |settings|Change/Get settings in the current server.|settings <set \| get>|settings, s|
 |stats|Display stats about the bot like the uptime.|/stats|stats, info|
 |textgen|Display stats about the bot like the uptime.|/textgen 'prompt: text'|textgen, tg|
+
+## A Images Example
+
+<p align="left">
+  <img src="https://autumn.revolt.chat/attachments/pFShcvWtURNh5etn790kE-enejiV3gAgqZk5yIWbaP" />
+</p><p align="left">
+  <img src="https://autumn.revolt.chat/attachments/JJu_aNen_C455l_J3pAJa6d-of_JniNQWDnTg2kjvl" />
+</p>
