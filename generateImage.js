@@ -2,7 +2,7 @@ const { Configuration, OpenAIApi } = require("openai");
 const fs = require("fs");
 const path = require("path");
 
-const API_KEY = "its ur problem";
+const API_KEY = "that ur problem";
 const DEFAULT_MODEL = "image-alpha-001";
 const AVAILABLE_MODELS = [
   "image-alpha-001",
@@ -15,7 +15,7 @@ const AVAILABLE_MODELS = [
   "image-jukebox-001",
 ];
 
-const RATE_LIMIT_COUNT = 1000;
+const RATE_LIMIT_COUNT = 100;
 
 const usageDataPath = path.join(__dirname, "usageData.json");
 
@@ -54,14 +54,14 @@ async function ask(prompt, message, model = DEFAULT_MODEL) {
 
   // Check if the user has exceeded the usage limit
   if (userUsage.count >= RATE_LIMIT_COUNT && now < userUsage.resetTime) {
-    const timeLeft = Math.ceil((userUsage.resetTime - now) / 1000);
+    const timeLeft = Math.ceil((userUsage.resetTime - now) / 100);
     throw new Error(`Usage limit reached for user ${userId}. Try again in ${timeLeft} seconds.`);
   }
 
   userUsage.count++;
 
-  // Check if the user has used the API 1000 times
-  if (userUsage.count === 1000) {
+  // Check if the user has used the API 100 times
+  if (userUsage.count === 100) {
     userUsage.limitReached = true;
   }
 
@@ -70,7 +70,7 @@ async function ask(prompt, message, model = DEFAULT_MODEL) {
   saveUsageData();
 
   if (userUsage.limitReached) {
-    return { success: false, error: "User" + `<@${userId}>` + "has reached 1000 API uses." };
+    return { success: false, error: "User" + `<@${userId}>` + "has reached 100 API uses. want more [support](rvlt.gg/qvJEsmPt) us [images](https://autumn.revolt.chat/attachments/0s377fGbuwcX4AA0aa3b1k-HC2VDJv2YJIGScAKyeB/image.png)" };
   }
 
   try {
@@ -78,13 +78,13 @@ async function ask(prompt, message, model = DEFAULT_MODEL) {
       prompt,
       model,
       n: 1,
-      size: "1024x1024"
+      size: "512x512"
     });
     const imageUrls = response?.data?.data?.map(({ url }) => url);
     return { success: true, imageUrls };
   } catch (error) {
     console.error(error);
-    return { success: false, error: error.message + " or bad prompt (maybe)" };
+    return { success: false, error: error.message + " or bad prompt [maybe](<https://status.openai.com/>)" };
   }
 }
 

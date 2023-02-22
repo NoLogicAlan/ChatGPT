@@ -5,6 +5,7 @@ const path = require("path");
 const fs = require("fs");
 const { SettingsManager } = require("./settings/Settings.js");
 require('console-stamp')(console, '[HH:MM:ss.l]');
+const Uploader = require("revolt-uploader");
 
 let config;
 if (fs.existsSync("./config.json")) {
@@ -21,6 +22,7 @@ class Chatgpt {
     this.client.config = config;
     this.config = config;
     this.presenceInterval = config.presenceInterval || 7000;
+    this.uploader = new Uploader(this.client);
 
     this.observedUsers = new Map();
 
@@ -103,7 +105,7 @@ class Chatgpt {
       this.comHashLong = null;
     }
 
-    this.comLink = (this.comHashLong) ? "https://github.com/NoLogicAlan/ChatGPT/tree/" + this.comHashLong : "https://github.com/NoLogicAlan/ChatGPT";
+    this.comLink = (this.comHashLong) ? "https://github.com/NoLogicAlan/Chatgpt/tree/" + this.comHashLong : "https://github.com/NoLogicAlan/Chatgpt";
     this.playerMap = new Map();
     this.currPort = -1;
     this.channels = [];
@@ -150,7 +152,6 @@ class Chatgpt {
     return {
       content: " ",
       embeds: [e],
-      masquerade: this.masquerade(m)
     }
   }
   isNumber(n) {
